@@ -1,0 +1,171 @@
+.logo {
+	img{
+		width: 9.375rem;
+	}
+}
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+	padding:0 7vw;
+	background-color: $bg-color;
+	border-bottom: 2px solid $bb-color;
+	box-shadow: 0 2px 20px $box-shadow-color;
+	.logo{
+		font-size: 25px;
+		font-weight: 700;
+	}
+	ul{
+		display: flex;
+		align-items: center;
+	}
+	ul a:hover{
+		color: $hover-color;
+	}
+	a{
+		transition: color, 0.2s ease-in-out;
+	}
+}
+.bar{
+	display: none;
+}
+.nav{
+	ul a{
+		padding: 0px 15px;
+		font-size: $fz-14;
+		font-weight: bold;
+	}
+	ul{
+		@media(max-width:1100px) and (min-width:769px){
+			//display: grid;
+			//grid-template-columns: repeat(2, 1fr);
+			row-gap: 10px;
+			text-align: center;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+	}
+}
+.account{
+	flex: 0.1;
+	ul{
+		display: flex;
+		justify-content: end;
+		li{
+			padding: 0px 15px;
+			font-size: $fz-18;
+		}
+	}
+}
+.search{
+	display: none;
+	width: 200px;
+	justify-content: center;
+	input{
+		width: 100%;
+		outline: none;
+		border:none;
+		padding: 5px;
+	}
+	
+	@media(max-width:1100px) and (min-width:769px){
+		width: 100px;
+	}
+}
+.fa-house-chimney {
+	@media(max-width:1100px) and (min-width:769px) {
+			margin-right: -10px;
+		}
+}
+.srchicon{
+	background-color: rgb(255,210,210);
+	display: inline-block;
+	padding: 4px 5px;
+	cursor: pointer;
+}
+.headerbar{
+	display: none;
+}
+.searchicon{
+	display: block;
+}
+@media only screen and (max-width:768px) {
+	.header .nav, .header .account{
+		display: none;
+	}
+	.search{
+		width: 60vw;
+	}
+	.bar{
+		display: block;
+		cursor: pointer;
+	}
+	.headerbar{
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		right: -100%;
+		bottom: 0;
+		width: 100%;
+		transition: all 0.5s ease-in-out;
+		background-color: rgb(252, 231, 216);
+		z-index: 10;
+		& .account, & .nav{
+			display: block;
+			font-size: $fz-18;
+		}
+		& .nav {
+			ul{
+				flex-direction: column;
+				margin-top: 10px;
+				text-align: center;
+			}
+			li{
+				width: 96vw;
+				margin: 10px 0;
+				padding: 15px 30px;
+				box-shadow:0 2px 15px $box-shadow-color2;
+				margin-top: 5px;
+			}
+			a{
+				font-size: $fz-15;
+			}
+		}
+		& .account{
+			line-height: 2.222;
+			margin-top: 60px;
+			background-color: rgb(252, 210, 182);
+			padding: 15px;
+			ul{
+				justify-content: space-between;
+			}
+		}
+	}
+	.bar .fa-xmark{
+		display: none;
+		top: 20px;
+		right: 5vw;
+		position: absolute;
+		font-size: $fz-25;
+	}
+	.fa-xmark{
+		z-index: 20;
+	}
+}
+
+#searchicon1,
+#searchicon2{
+	&.active{
+		color: red;
+	}
+}
+
+#searchinput1,
+#searchinput2{
+	&.active{
+		display: flex;
+	}
+}
